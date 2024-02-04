@@ -19,7 +19,7 @@ class Database extends Config
      * Lets you choose which connection group to
      * use if no other is specified.
      */
-    public string $defaultGroup = 'client';
+    public string $defaultGroup = 'default';
 
     /**
      * The default database connection.
