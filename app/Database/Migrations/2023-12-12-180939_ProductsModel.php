@@ -53,11 +53,12 @@ class ProductsModel extends Migration
         ]);
         $this->forge->addKey('id', true);
         $this->forge->createTable('products');
-        $this->forge->addForeignKey('category_id', 'products_category', 'id', '', 'CASCADE');
+        $this->forge->addForeignKey('category_id', 'products_category', 'id', 'CASCADE', 'CASCADE', 'fk_category');
     }
 
     public function down()
     {
         $this->forge->dropTable('products');
+        $this->forge->dropForeignKey('products_category', 'fk_category');
     }
 }
