@@ -49,7 +49,7 @@ class Database extends Config
         'DSN'      => '',
         'hostname' => 'localhost',
         'username' => 'u708087849_packachu',
-        'password' => '4ura6JIWabU/',
+        'password' => 'F2Sv=sm2c]',
         'database' => 'u708087849_packachu',
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
