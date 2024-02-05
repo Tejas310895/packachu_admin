@@ -1,0 +1,8 @@
+[22-Jul-2023 17:59:00 UTC] PHP Fatal error:  Uncaught RuntimeException: Your Composer version is too old. Please update Composer (run `composer self-update`) to v2.0.14 or later and remove your vendor/ directory, and run `composer update`. in /home/u382061532/domains/rmaxpackaging.com/public_html/admin/vendor/codeigniter4/framework/system/Autoloader/Autoloader.php:377
+Stack trace:
+#0 /home/u382061532/domains/rmaxpackaging.com/public_html/admin/vendor/codeigniter4/framework/system/Autoloader/Autoloader.php(143): CodeIgniter\Autoloader\Autoloader->loadComposerNamespaces()
+#1 /home/u382061532/domains/rmaxpackaging.com/public_html/admin/vendor/codeigniter4/framework/system/Autoloader/Autoloader.php(125): CodeIgniter\Autoloader\Autoloader->loadComposerInfo()
+#2 /home/u382061532/domains/rmaxpackaging.com/public_html/admin/vendor/codeigniter4/framework/system/bootstrap.php(105): CodeIgniter\Autoloader\Autoloader->initialize()
+#3 /home/u382061532/domains/rmaxpackaging.com/public_html/admin/spark(75): require('/home/u38206153...')
+#4 {main}
+  thrown in /home/u382061532/domains/rmaxpackaging.com/public_html/admin/vendor/codeigniter4/framework/system/Autoloader/Autoloader.php on line 377
