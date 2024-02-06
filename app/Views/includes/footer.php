@@ -1,3 +1,7 @@
+<?php
+
+echo script_tag('public/templates/dash-libs/vendor/jquery/jquery.min.js');
+?>
 <script src="public/templates/dash-libs/vendor/jquery/jquery.min.js"></script>
 <script src="public/templates/dash-libs/vendor/jqueryui/js/jquery-ui.min.js"></script>
 <script src="public/templates/dash-libs/vendor/global/global.min.js"></script>
