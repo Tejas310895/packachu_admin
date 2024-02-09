@@ -16,7 +16,7 @@ class App extends BaseConfig
      *
      *    http://example.com/
      */
-    public string $baseURL = 'http://localhost/packachu_new/admin';
+    public string $baseURL = 'https://admin.packachu.com/';
     public string $templateURL = 'public/templates/dash-libs';
 
     /**
