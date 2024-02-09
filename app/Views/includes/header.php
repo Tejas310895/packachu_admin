@@ -8,9 +8,9 @@
     <title>Focus - Bootstrap Admin Dashboard </title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.png">
-    <link href="public/templates/dash-libs/vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
-    <link href="public/templates/dash-libs/css/style.css" rel="stylesheet">
-    <link href="public/templates/dash-libs/vendor/select2/css/select2.min.css" rel="stylesheet">
+    <link href="public/templates/vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="public/templates/css/style.css" rel="stylesheet">
+    <link href="public/templates/vendor/select2/css/select2.min.css" rel="stylesheet">
 
 </head>
 
