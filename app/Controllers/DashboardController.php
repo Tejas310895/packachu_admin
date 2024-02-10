@@ -129,7 +129,6 @@ class DashboardController extends BaseController
                 ]);
             }
             $users->save($user);
-            $user = $users->findById($users->getInsertID());
             $users->addToDefaultGroup($user);
             return redirect()->route('users');
         }

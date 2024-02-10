@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Packachu Ad<i class="fa fa-minus" aria-hidden="true"></i> </title>
+    <title>Packachu Admin </title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.png">
     <link href="public/assets/vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
