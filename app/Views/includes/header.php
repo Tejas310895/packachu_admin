@@ -7,10 +7,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Focus - Bootstrap Admin Dashboard </title>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.png">
+    <!-- <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.png">
     <link href="public/templates/vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
     <link href="public/templates/css/style.css" rel="stylesheet">
-    <link href="public/templates/vendor/select2/css/select2.min.css" rel="stylesheet">
+    <link href="public/templates/vendor/select2/css/select2.min.css" rel="stylesheet"> -->
 
 </head>
 
