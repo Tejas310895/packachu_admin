@@ -9,7 +9,7 @@
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.png">
     <link href="public/assets/vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
-    <link href="public/templates/css/style.css" rel="stylesheet">
+    <link href="public/assets/css/style.css" rel="stylesheet">
     <link href="public/assets/vendor/select2/css/select2.min.css" rel="stylesheet">
 
 </head>
