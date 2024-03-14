@@ -5,6 +5,7 @@
 
   // single select box
   $("#single-select").select2();
+  $(".select2").select2();
 
   // multi select box
   $('.multi-select').select2();
@@ -13,7 +14,7 @@
   $('.dropdown-groups').select2();
 
   //disabling options
-  $('.disabling-options').select2();
+  $('select.disabling-options').select2();
 
   //disabling a select2 control
   $(".js-example-disabled").select2();

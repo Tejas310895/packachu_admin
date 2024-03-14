@@ -31,6 +31,9 @@ $request = \Config\Services::request();
                                     <input type="text" class="form-control" name="product_mrp" placeholder="Enter MRP" required>
                                 </div>
                                 <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" name="measure_in" placeholder="Enter Measure Unit" required>
+                                </div>
+                                <div class="form-floating mb-3">
                                     <input type="text" class="form-control" name="product_rate" placeholder="Enter Rate" required>
                                 </div>
                                 <div class="input-group mb-3">
@@ -99,18 +102,23 @@ $request = \Config\Services::request();
                                                         <div class="card-body p-2">
                                                             <h5 class="card-title"><?= $items['name'] ?></h5>
                                                             <div class="row">
-                                                                <div class="col-4 p-1 border-right">
-                                                                    <h6 class="text-muted mb-1 text-center" style="font-size:1em;">MRP</h6>
-                                                                    <p class="text-muted mb-1 text-center" style="font-size:0.8em;"><strong><?= $items['product_mrp'] ?>/Pcs</strong></p>
-                                                                </div>
+                                                                <?php if ($items['product_mrp'] > 0 && $items['product_mrp'] != null) : ?>
+                                                                    <div class="col-4 p-1 border-right">
+                                                                        <h6 class="text-muted mb-1 text-center" style="font-size:1em;">MRP</h6>
+                                                                        <p class="text-muted mb-1 text-center" style="font-size:0.8em;"><strong><?= $items['product_mrp'] ?>/<?= $items['measure_in'] ?></strong></p>
+                                                                    </div>
+                                                                <?php endif ?>
+
                                                                 <div class="col-4 p-1 border-right">
                                                                     <h6 class="text-muted mb-1 text-center" style="font-size:1em;">Rate</h6>
-                                                                    <p class="text-muted mb-1 text-center" style="font-size:0.8em;"><strong><?= $items['product_rate'] ?>/Pcs</strong></p>
+                                                                    <p class="text-muted mb-1 text-center" style="font-size:0.8em;"><strong><?= $items['product_rate'] ?>/<?= $items['measure_in'] ?></strong></p>
                                                                 </div>
-                                                                <div class="col-4 p-1">
-                                                                    <h6 class="text-danger mb-1 text-center" style="font-size:1em;">Margin</h6>
-                                                                    <p class="text-danger mb-1 text-center" style="font-size:0.8em;"><strong><?= round(100 - (($items['product_rate'] / $items['product_mrp']) * 100)) ?>%</strong></p>
-                                                                </div>
+                                                                <?php if ($items['product_mrp'] > 0 && $items['product_mrp'] != null) : ?>
+                                                                    <div class="col-4 p-1">
+                                                                        <h6 class="text-danger mb-1 text-center" style="font-size:1em;">Margin</h6>
+                                                                        <p class="text-danger mb-1 text-center" style="font-size:0.8em;"><strong><?= round(100 - (($items['product_rate'] / $items['product_mrp']) * 100)) ?>%</strong></p>
+                                                                    </div>
+                                                                <?php endif ?>
                                                             </div>
                                                         </div>
                                                         <div class="card-footer">
@@ -145,15 +153,10 @@ $request = \Config\Services::request();
                                                                                             <input type="text" class="form-control" name="product_mrp" value="<?= $items['product_mrp'] ?>" required>
                                                                                         </div>
                                                                                         <div class="form-floating mb-3">
-                                                                                            <input type="text" class="form-control" name="product_rate" value="<?= $items['product_rate'] ?>" required>
+                                                                                            <input type="text" class="form-control" name="measure_in" value="<?= $items['measure_in'] ?>" required>
                                                                                         </div>
                                                                                         <div class="form-floating mb-3">
-                                                                                            <div class="input-group mb-3">
-                                                                                                <div class="custom-file">
-                                                                                                    <input type="file" class="custom-file-input" name="product_img" required>
-                                                                                                    <label class="custom-file-label">Choose file</label>
-                                                                                                </div>
-                                                                                            </div>
+                                                                                            <input type="text" class="form-control" name="product_rate" value="<?= $items['product_rate'] ?>" required>
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="modal-footer">

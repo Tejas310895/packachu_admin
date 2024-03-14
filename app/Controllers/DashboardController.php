@@ -53,6 +53,14 @@ class DashboardController extends BaseController
                 $this->prodModel->Save($postdata);
             } elseif (array_key_exists('prod_edit', $postdata)) {
                 unset($postdata['prod_edit']);
+                $this->prodModel->Save($postdata);
+            } elseif (array_key_exists('prod_status', $postdata)) {
+                unset($postdata['prod_status']);
+                $this->prodModel->Save($postdata);
+            } elseif (array_key_exists('prod_delete', $postdata)) {
+                unset($postdata['prod_delete']);
+                $this->prodModel->delete($postdata);
+            } elseif ($postdata['prod_img_edit']) {
                 $validationRule = [
                     'userfile' => [
                         'label' => 'Image File',
@@ -75,13 +83,6 @@ class DashboardController extends BaseController
                     $filepath =   '/uploads/' . $img->store();
                 }
                 $postdata['product_img'] = $filepath;
-                $this->prodModel->Save($postdata);
-            } elseif (array_key_exists('prod_status', $postdata)) {
-                unset($postdata['prod_status']);
-                $this->prodModel->Save($postdata);
-            } elseif (array_key_exists('prod_delete', $postdata)) {
-                unset($postdata['prod_delete']);
-                $this->prodModel->delete($postdata);
             }
 
             return redirect()->route('/');
@@ -121,6 +122,8 @@ class DashboardController extends BaseController
                     'email' => $postdata['email'],
                     'password' => 'pass123456'
                 ]);
+            }elseif(isset($postdata['delete_user'])){
+                
             } else {
                 $user = new User([
                     'username' => $postdata['name'],

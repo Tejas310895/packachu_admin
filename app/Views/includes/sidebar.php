@@ -103,18 +103,25 @@
 <div class="quixnav">
     <div class="quixnav-scroll">
         <ul class="metismenu" id="menu">
-            <li class="nav-label first">Main Menu</li>
             <!-- <li><a href="index.html"><i class="icon icon-single-04"></i><span class="nav-text">Dashboard</span></a>
                     </li> -->
-            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="icon icon-single-04"></i><span class="nav-text">Inventories</span></a>
+            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="icon icon-single-04"></i><span class="nav-text">Management</span></a>
                 <ul aria-expanded="false">
-                    <li><a href="<?= base_url() ?>">Products</a></li>
-                    <li><a href="customers">Customers</a></li>
-                    <li><a href="users">Members</a></li>
+                    <li><a href="<?= base_url() ?>">Members</a></li>
                 </ul>
             </li>
-
-
+            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="icon icon-single-04"></i><span class="nav-text">Billing</span></a>
+                <ul aria-expanded="false">
+                    <li><a href="customers">Customers</a></li>
+                    <li><a href="purchases">Purchases</a></li>
+                    <li><a href="sales">Sale</a></li>
+                </ul>
+            </li>
+            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="icon icon-single-04"></i><span class="nav-text">Inventories</span></a>
+                <ul aria-expanded="false">
+                    <li><a href="products">Products</a></li>
+                </ul>
+            </li>
         </ul>
     </div>
 </div>

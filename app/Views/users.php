@@ -37,7 +37,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table id="example" class="display" style="min-width: 845px">
+                        <table id="example" class="display text-dark" style="min-width: 845px">
                             <thead>
                                 <tr>
                                     <th>Name</th>
@@ -59,7 +59,7 @@
                                                     <form action="<?= current_url() ?>" method="post" enctype='multipart/form-data'>
                                                         <?= csrf_field() ?>
                                                         <input type="hidden" name="id" value="<?= $value->id ?>">
-                                                        <button type="submit" name="delete_cust" class="btn btn-rounded btn-outline-primary"><i class="fa fa-trash"></i></button>
+                                                        <button type="submit" name="delete_user" class="btn btn-rounded btn-outline-primary"><i class="fa fa-trash"></i></button>
                                                     </form>
                                                 </div>
                                             </div>

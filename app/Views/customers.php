@@ -49,7 +49,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table id="example" class="display" style="min-width: 845px">
+                        <table id="example" class="display text-dark" style="min-width: 845px">
                             <thead>
                                 <tr>
                                     <th>Name</th>
