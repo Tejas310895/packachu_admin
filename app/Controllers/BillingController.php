@@ -65,6 +65,7 @@ class BillingController extends BaseController
                             'stock' => $products['qty'],
                             'product_rate' => $products['unit_rate'],
                             'measure_in' => $products['mesure_unit'],
+                            'hsn_code' => $products['hsn_code'],
                             'status' => 1,
                             'category_id' => 1
                         ];
@@ -74,7 +75,7 @@ class BillingController extends BaseController
                 }
                 array_push($new_inventories, $temp_inve);
             }
-            $postdata['purchase_inventory'] = json_encode($inventory_arr);
+            $postdata['purchase_inventory'] = json_encode($new_inventories);
             $postdata['status'] = 1;
             $this->purchase->save($postdata);
             return redirect()->route('purchases');

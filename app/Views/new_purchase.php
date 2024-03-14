@@ -37,6 +37,7 @@
                     <input type="text" class="form-control" name="purchase_inventory[mesure_unit][]" placeholder="Measure unit" required />
                     <input type="text" class="form-control" name="purchase_inventory[qty][]" placeholder="Quantity" required />
                     <input type="text" class="form-control" name="purchase_inventory[unit_rate][]" placeholder="Unit Rate" required />
+                    <input type="text" class="form-control" name="purchase_inventory[hsn_code][]" placeholder="HSN Code" required />
                     <input type="text" class="form-control" name="purchase_inventory[gst_rate][]" placeholder="Gst Rate" required />
                     <input type="text" class="form-control" name="purchase_inventory[discount][]" placeholder="Discount">
                     <button type="button" class="btn  btn-square btn-success text-white" onclick="add_purchase_item($(this))">Add</button>
@@ -67,6 +68,7 @@
         temp += '<input type="text" class="form-control" name="purchase_inventory[mesure_unit][]" placeholder="Measure unit" required/>';
         temp += '<input type="text" class="form-control" name="purchase_inventory[qty][]" placeholder="Quantity" required/>';
         temp += '<input type="text" class="form-control" name="purchase_inventory[unit_rate][]" placeholder="Unit Rate" required/>';
+        temp += '<input type="text" class="form-control" name="purchase_inventory[hsn_code][]" placeholder="HSN Code" required/>';
         temp += '<input type="text" class="form-control" name="purchase_inventory[gst_rate][]" placeholder="Gst Rate" required/>';
         temp += '<input type="text" class="form-control" name="purchase_inventory[discount][]" placeholder="Discount" required/>';
         temp += '<button type="button" class="btn  btn-square btn-danger text-white" onclick="delete_purchase_item($(this))"><i class="fa fa-trash"></i></button>';

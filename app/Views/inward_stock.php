@@ -63,7 +63,7 @@
                                                                     $tot_tot += ($items['unit_rate'] * $items['qty']) + (($items['unit_rate'] * $items['qty']) * ($items['gst_rate'] / 100));
                                                                 ?>
                                                                     <tr>
-                                                                        <th><?= $products[$items['prod_id']]['name'] ?></th>
+                                                                        <th><?= @$products[$items['prod_id']]['name'] ?></th>
                                                                         <td><?= $items['qty'] . ' ' . $items['mesure_unit'] ?></td>
                                                                         <td><?= $items['unit_rate'] ?></td>
                                                                         <td><?= $items['unit_rate'] * $items['qty'] ?></td>
