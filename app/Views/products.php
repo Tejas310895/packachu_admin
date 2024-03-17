@@ -18,7 +18,7 @@ $request = \Config\Services::request();
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <select class="mb-3" id="single-select" name="category_id" required>
+                                <select class="mb-3 form-control" name="category_id" required>
                                     <option value="" selected disabled>Select Category</option>
                                     <?php foreach ($category as $cats) : ?>
                                         <option value="<?= $cats['id'] ?>"><?= $cats['name'] ?></option>
@@ -28,13 +28,19 @@ $request = \Config\Services::request();
                                     <input type="text" class="form-control" name="name" placeholder="Enter Name" required>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" name="product_mrp" placeholder="Enter MRP" required>
+                                    <input type="number" class="form-control" name="product_mrp" placeholder="Enter MRP" required>
                                 </div>
                                 <div class="form-floating mb-3">
                                     <input type="text" class="form-control" name="measure_in" placeholder="Enter Measure Unit" required>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" name="product_rate" placeholder="Enter Rate" required>
+                                    <input type="number" class="form-control" name="product_rate" placeholder="Enter Rate" required>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="number" class="form-control" name="hsn_code" placeholder="Enter HSN" required>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="number" class="form-control" name="gst_rate" placeholder="Enter GST Rate" required>
                                 </div>
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
@@ -95,7 +101,35 @@ $request = \Config\Services::request();
                                                 <div class="row g-0">
                                                     <div class="col-md-4 px-0">
                                                         <?php if ($items['product_img'] !== null) : ?>
-                                                            <img src="<?= IMGPROD . $items['product_img'] ?>" class="img-fluid img-cover rounded-start " alt="...">
+                                                            <div class="container-fluid px-0" style="background-image: url('<?= IMGPROD . $items['product_img'] ?>');height: 72%;background-size: cover;">
+                                                                <button type="button" class="btn btn-light" data-toggle="modal" data-target="#img-modal-<?= $items['id'] ?>"><i class="mdi mdi-pencil"></i></button>
+                                                            </div>
+                                                            <div class="modal fade" id="img-modal-<?= $items['id'] ?>" aria-hidden="true" style="display: none;">
+                                                                <div class="modal-dialog" role="document">
+                                                                    <form action="<?= current_url() ?>" method="post" enctype='multipart/form-data'>
+                                                                        <?= csrf_field() ?>
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <h5 class="modal-title">Edit Image</h5>
+                                                                                <button type="button" class="close" data-dismiss="modal"><span>×</span>
+                                                                                </button>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                                <div class="input-group mb-3">
+                                                                                    <div class="custom-file">
+                                                                                        <input type="hidden" name="product_id" value="<?= $items['id'] ?>">
+                                                                                        <input type="file" class="custom-file-input" name="edit_product_img" required>
+                                                                                        <label class="custom-file-label">Choose file</label>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="modal-footer">
+                                                                                <button type="submit" name="edit_image" class="btn btn-primary">Submit</button>
+                                                                            </div>
+                                                                        </div>
+                                                                        <?= form_close() ?>
+                                                                </div>
+                                                            </div>
                                                         <?php endif ?>
                                                     </div>
                                                     <div class="col-md-8">
@@ -147,16 +181,28 @@ $request = \Config\Services::request();
                                                                                             <?php endforeach ?>
                                                                                         </select>
                                                                                         <div class="form-floating mb-3 mt-3">
+                                                                                            <label for="name">Name</label>
                                                                                             <input type="text" class="form-control" name="name" value="<?= $items['name'] ?>" required>
                                                                                         </div>
                                                                                         <div class="form-floating mb-3">
-                                                                                            <input type="text" class="form-control" name="product_mrp" value="<?= $items['product_mrp'] ?>" required>
+                                                                                            <label for="name">MRP</label>
+                                                                                            <input type="number" class="form-control" name="product_mrp" value="<?= $items['product_mrp'] ?>" required>
                                                                                         </div>
                                                                                         <div class="form-floating mb-3">
+                                                                                            <label for="name">Measure Unit</label>
                                                                                             <input type="text" class="form-control" name="measure_in" value="<?= $items['measure_in'] ?>" required>
                                                                                         </div>
                                                                                         <div class="form-floating mb-3">
-                                                                                            <input type="text" class="form-control" name="product_rate" value="<?= $items['product_rate'] ?>" required>
+                                                                                            <label for="name">Rate</label>
+                                                                                            <input type="number" class="form-control" name="product_rate" value="<?= $items['product_rate'] ?>" required>
+                                                                                        </div>
+                                                                                        <div class="form-floating mb-3">
+                                                                                            <label for="name">HSN</label>
+                                                                                            <input type="number" class="form-control" name="hsn_code" value="<?= $items['hsn_code'] ?>" required>
+                                                                                        </div>
+                                                                                        <div class="form-floating mb-3">
+                                                                                            <label for="name">Gst Rate</label>
+                                                                                            <input type="number" class="form-control" name="hsn_code" value="<?= $items['gst_rate'] ?>" required>
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="modal-footer">

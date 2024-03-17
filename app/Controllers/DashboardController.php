@@ -51,6 +51,35 @@ class DashboardController extends BaseController
                 }
                 $postdata['product_img'] = $filepath;
                 $this->prodModel->Save($postdata);
+            } elseif (array_key_exists('edit_image', $postdata)) {
+                $product_data = $this->prodModel->find($postdata['product_id']);
+                $del_path = IMGPROD . $product_data['product_img'];
+                if ($product_data['product_img'] != '' || $product_data['product_img'] != null) {
+                    unlink($del_path);
+                }
+                $validationRule = [
+                    'userfile' => [
+                        'label' => 'Image File',
+                        'rules' => [
+                            'uploaded[userfile]',
+                            'is_image[userfile]',
+                            'mime_in[userfile,image/jpg,image/jpeg,image/gif,image/png,image/webp]',
+                            'max_size[userfile,100]',
+                            'max_dims[userfile,1024,768]',
+                        ],
+                    ],
+                ];
+                if (!$this->validate($validationRule)) {
+                    $data = ['errors' => $this->validator->getErrors()];
+                }
+
+                $img = $this->request->getFile('edit_product_img');
+
+                if (!$img->hasMoved()) {
+                    $filepath =  '/uploads/' . $img->store();
+                }
+                $postdata['product_img'] = $filepath;
+                $this->prodModel->set(['product_img' => $filepath])->where('id', $postdata['product_id'])->update();
             } elseif (array_key_exists('prod_edit', $postdata)) {
                 unset($postdata['prod_edit']);
                 $this->prodModel->Save($postdata);
@@ -60,32 +89,9 @@ class DashboardController extends BaseController
             } elseif (array_key_exists('prod_delete', $postdata)) {
                 unset($postdata['prod_delete']);
                 $this->prodModel->delete($postdata);
-            } elseif ($postdata['prod_img_edit']) {
-                $validationRule = [
-                    'userfile' => [
-                        'label' => 'Image File',
-                        'rules' => [
-                            'uploaded[product_img]',
-                            'is_image[product_img]',
-                            'mime_in[product_img,image/jpg,image/jpeg,image/gif,image/png,image/webp]',
-                            'max_size[product_img,100]',
-                            'max_dims[product_img,1024,768]',
-                        ],
-                    ],
-                ];
-                if (!$this->validate($validationRule)) {
-                    $data = ['errors' => $this->validator->getErrors()];
-                }
-
-                $img = $this->request->getFile('product_img');
-
-                if (!$img->hasMoved()) {
-                    $filepath =   '/uploads/' . $img->store();
-                }
-                $postdata['product_img'] = $filepath;
             }
 
-            return redirect()->route('/');
+            return redirect()->route('products');
         } else {
             return $this->render_page('products', $data);
         }
@@ -122,8 +128,7 @@ class DashboardController extends BaseController
                     'email' => $postdata['email'],
                     'password' => 'pass123456'
                 ]);
-            }elseif(isset($postdata['delete_user'])){
-                
+            } elseif (isset($postdata['delete_user'])) {
             } else {
                 $user = new User([
                     'username' => $postdata['name'],
