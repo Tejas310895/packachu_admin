@@ -22,7 +22,7 @@
                                     <input type="email" class="form-control" name="email" placeholder="Enter email" required>
                                 </div>
                                 <div class="form-floating mb-3 mt-3">
-                                    <input type="password" class="form-control" name="password" placeholder="Enter email" required>
+                                    <input type="password" class="form-control" name="password" placeholder="Enter Password" required>
                                 </div>
                             </div>
                             <div class="modal-footer">
